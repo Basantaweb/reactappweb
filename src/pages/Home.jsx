@@ -1,36 +1,51 @@
 import React from 'react'
-import { useState } from 'react'
+import Store from "./Store";
+
 
 function Home() {
-    const [ count, setCount ] = useState(0);
   return (
     <>
-        <div>Home</div>
-        <div className="flex flex-col items-center space-y-4 p-6">
-            <h1 className="text-2xl font-bold">Count: {count}</h1>
-            <div className="flex space-x-4">
-                <button 
-                className="px-4 py-2 bg-blue-500 text-white rounded-lg"
-                onClick={() => setCount(count + 1)}
-                >
-                Increment
-                </button>
-                <button 
-                className="px-4 py-2 bg-red-500 text-white rounded-lg"
-                onClick={() => setCount(count - 1)}
-                >
-                Decrement
-                </button>
-                <button 
-                className="px-4 py-2 bg-gray-500 text-white rounded-lg"
-                onClick={() => setCount(0)}
-                >
-                Reset
-                </button>
+      <div className="main">
+        <div className="row">
+          <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
+            <div className="carousel-inner">
+              <div className="carousel-item active">
+                <img
+                  src="https://picsum.photos/800/400?random=1"
+                  className="d-block w-100 img-fluid"
+                  alt="Nature"
+                  style={{ height: "300px", objectFit: "cover" }}
+                />
+              </div>
+              <div className="carousel-item">
+                <img
+                  src="https://picsum.photos/800/400?random=2"
+                  className="d-block w-100 img-fluid"
+                  alt="City"
+                  style={{ height: "300px", objectFit: "cover" }}
+                />
+              </div>
+              <div className="carousel-item">
+                <img
+                  src="https://picsum.photos/800/400?random=3"
+                  className="d-block w-100 img-fluid"
+                  alt="Mountains"
+                  style={{ height: "300px", objectFit: "cover" }}
+                />
+              </div>
             </div>
+            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
         </div>
+        <Store />
+      </div>
     </>
-  )
+  );
 }
 
 export default Home

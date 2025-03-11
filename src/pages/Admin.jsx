@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import auth from "../services/authService";
 
 export default function Admin() {
   const navigate = useNavigate();
-  if (!auth.isLoggedIn()) {
-    navigate("/");
-  }
-
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState("");
+
+  // ✅ Prevent infinite redirection
+  useEffect(() => {
+    if (!auth.isLoggedIn()) {
+      navigate("/");
+    }
+  }, []); // ✅ Only runs once when component mounts
 
   const addItem = () => {
     if (newItem.trim() !== "") {
@@ -24,7 +27,7 @@ export default function Admin() {
 
   return (
     <div className="container mt-4">
-      <h2>Admin Panel - Manage Items</h2>
+      <span>Admin Panel - Manage Items</span>
       <div className="input-group mb-3">
         <input 
           type="text" 

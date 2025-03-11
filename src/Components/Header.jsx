@@ -5,6 +5,8 @@ import Homes from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Admin from "../pages/Admin";
+import PrivateRoute from "../routes/PrivateRoute";
+import Task from '../pages/Task';
 
 function Header() {
   return (
@@ -16,7 +18,11 @@ function Header() {
                 <Route path="" element={<Homes />} />
                 <Route path="about" element={<About />} />
                 <Route path="contact" element={<Contact />} />
-                <Route path="admin" element={<Admin />} />
+                        {/* Protected Admin Routes */}
+                <Route element={<PrivateRoute />}>
+                  <Route path="/admin" element={<Admin />} />
+                  <Route path='/task' element={<Task />} />
+                </Route>
                 </Routes>
             </div>
         </Router>

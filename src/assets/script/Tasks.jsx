@@ -7,7 +7,7 @@ import { useState } from 'react'
 //   return passwordRegex.test(password);
 // }
 
-const Task = () => {
+const Tasks = () => {
 
   const [name, setName] = useState('');
   
@@ -30,4 +30,4 @@ const Task = () => {
   )
 }
 
-export default Task
+export default Tasks

@@ -3,8 +3,8 @@ import auth from "../services/authService";
 
 export default function AuthModal({ show, onClose, setLoggedIn }) {
   const [isLogin, setIsLogin] = useState(true);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin@example.com");
+  const [password, setPassword] = useState("admin123");
   const [error, setError] = useState("");
 
   const handleSubmit = () => {
@@ -34,14 +34,14 @@ export default function AuthModal({ show, onClose, setLoggedIn }) {
               type="email" 
               className="form-control mb-2" 
               placeholder="Email" 
-              value={email} 
+              value={'admin@example.com'} 
               onChange={(e) => setEmail(e.target.value)}
             />
             <input 
               type="password" 
               className="form-control mb-2" 
               placeholder="Password" 
-              value={password} 
+              value={'admin123'} 
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
